@@ -18,8 +18,8 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.2~</h3><br>
-		- Lost the old changelog.
-		- Copied layers.js over to a more updated modding tree.
+		- Lost the old changelog.<br>
+		- Copied layers.js over to a more updated modding tree.<br>
 		- Hooray!`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
