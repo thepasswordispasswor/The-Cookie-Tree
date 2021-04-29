@@ -34,16 +34,17 @@ function getStartPoints(){
 
 // Determines if it should show points/sec
 function canGenPoints(){
-	return true
+	return hasUpgrade("c", 11);
 }
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints()) return new Decimal(0)
+	if(!canGenPoints()) return new Decimal(0);
 	
-	let gain = new Decimal(1)
-	if(hasUpgrade("c",11))gain = gain.times(tmp.c.upgrades[11].effect)
-	return gain
+	let gain = new Decimal(1);
+	if(hasUpgrade("c",12)) gain = gain.times(tmp.c.upgrades[12].effect);
+	if(hasUpgrade("c",13)) gain = gain.times(tmp.c.upgrades[13].effect);
+	return gain;
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
