@@ -1,10 +1,10 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "The Cookie Tree",
 	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
-	discordName: "",
-	discordLink: "",
+	author: "Ain'teil",
+	pointsName: "cookies",
+	discordName: "Don't have one.",
+	discordLink: "javascript:player.points*=1000",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	
 	offlineLimit: 1,  // In hours
@@ -12,14 +12,15 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.2~",
+	name: "The Shift",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.2~</h3><br>
+		- Lost the old changelog.
+		- Copied layers.js over to a more updated modding tree.
+		- Hooray!`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -38,10 +39,10 @@ function canGenPoints(){
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
-		return new Decimal(0)
-
+	if(!canGenPoints()) return new Decimal(0)
+	
 	let gain = new Decimal(1)
+	if(hasUpgrade("c",11))gain = gain.times(tmp.c.upgrades[11].effect)
 	return gain
 }
 
