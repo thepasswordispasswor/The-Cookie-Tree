@@ -237,8 +237,8 @@ addLayer("m", {
 	type: "static",
 	branches: ["c"],
 	row: 1,
-	exponent() { return 1.2 },
-	base() { return 3 },
+	exponent() { return 1.3 },
+	base() { return 4 },
 	gainMult() {
 		let mult = new Decimal(1);
 		
@@ -323,7 +323,7 @@ addLayer("m", {
 			title: "Pre-Cursors",
 			description: "Mice add to their base.",
 			effect() {
-				let eff = player.m.points.times(1/10);
+				let eff = player.m.points.times(1/25);
 				return eff;
 			},
 			cost() { return new Decimal(4) },
