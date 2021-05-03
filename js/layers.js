@@ -320,21 +320,22 @@ addLayer("m", {
 			effectDisplay() { return format(tmp.m.upgrades[12].effect)+"x" },
 		},
 		13: {
-			title: "Post-Cursors",
-			description: "New chip upgrades.",
-			cost() { return new Decimal(4) },
-			unlocked() { return hasUpgrade("m", 12) },
-		},
-		14: {
 			title: "Pre-Cursors",
-			description: "Mice add to mouse base.",
+			description: "Mice add to their base.",
 			effect() {
 				let eff = player.m.points.times(1/10);
 				return eff;
 			},
 			cost() { return new Decimal(4) },
 			unlocked() { return hasUpgrade("m", 12) },
-		}
+			effectDisplay() { return format(tmp.m.upgrades[13].effect)+"x" },
+		},
+		14: {
+			title: "Post-Cursors",
+			description: "New chip upgrades.",
+			cost() { return new Decimal(5) },
+			unlocked() { return hasUpgrade("m", 13) },
+		},
 	},
 });
 
