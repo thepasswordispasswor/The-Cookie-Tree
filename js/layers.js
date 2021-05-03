@@ -83,7 +83,7 @@ addLayer("c", {
 		22: {
 			title: "Rushed Searching",
 			description: "Cookies boost chip gain.",
-			cost() { return new Decimal(3e3) },
+			cost() { return new Decimal(400) },
 			effect() {
 				let eff = player.points.plus(1).log10().plus(1).pow(0.5);
 				return eff;
@@ -109,7 +109,7 @@ addLayer("g", {
 		auto: false,
 	}},
 	color: "#add8e6",
-	requires: new Decimal(600),
+	requires() { return player.c.unlocked ? new Decimal(1/0):new Decimal(600) },
 	resource: "grandmas",
 	baseResource: "cookies",
 	baseAmount() { return player.points },
@@ -255,6 +255,7 @@ addLayer("m", {
 	resetsNothing() { return false },
 	addToBase() {
 		let base = new Decimal(0);
+		if(hasUpgrade("m", 14)) base = base.plus(upgradeEffect("m", 14));
 		return base;
 	},
 	multiplyBase() {
@@ -266,10 +267,10 @@ addLayer("m", {
 		return base;
 	},
 	effectBase() {
-		let base = new Decimal(1.5);
+		let base = new Decimal(2);
 		
 		// Addition
-		//base = base.plus(tmp.m.addToBase);
+		base = base.plus(tmp.m.addToBase);
 		
 		// Multiplication
 		//base = base.times(tmp.m.multiplyBase);
@@ -320,7 +321,17 @@ addLayer("m", {
 		},
 		13: {
 			title: "Post-Cursors",
-			description: "New chip upgrades, pre-cursors is probably later. Maybe.",
+			description: "New chip upgrades.",
+			cost() { return new Decimal(4) },
+			unlocked() { return hasUpgrade("m", 12) },
+		},
+		14: {
+			title: "Pre-Cursors",
+			description: "Mice add to mouse base.",
+			effect() {
+				let eff = player.m.points.times(1/10);
+				return eff;
+			},
 			cost() { return new Decimal(4) },
 			unlocked() { return hasUpgrade("m", 12) },
 		}
