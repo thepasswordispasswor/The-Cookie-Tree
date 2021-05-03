@@ -255,7 +255,7 @@ addLayer("m", {
 	resetsNothing() { return false },
 	addToBase() {
 		let base = new Decimal(0);
-		if(hasUpgrade("m", 14)) base = base.plus(upgradeEffect("m", 14));
+		if(hasUpgrade("m", 13)) base = base.plus(upgradeEffect("m", 13));
 		return base;
 	},
 	multiplyBase() {
