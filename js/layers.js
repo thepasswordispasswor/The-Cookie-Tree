@@ -295,7 +295,7 @@ addLayer("m", {
 	},
 	upgrades: {
 		rows: 1,
-		cols: 3,
+		cols: 4,
 		11: {
 			title: "Cookie Clickers",
 			description: "Best mice now boost cookie generation.",
